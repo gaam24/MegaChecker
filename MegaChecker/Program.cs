@@ -30,6 +30,9 @@ namespace MegaChecker
             AccountManager.LoadFromFiles();
 
             //ConsoleMenu.MainMenu();
+            //Check newest version
+            builder.SendOne(" - Sprawdzanie wersji...");
+            ProgramData.CheckVersion();
 
             Console.ReadLine();
         }
