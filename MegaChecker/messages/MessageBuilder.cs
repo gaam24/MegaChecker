@@ -11,6 +11,12 @@ namespace MegaChecker.messages
         private List<Message> Messages = new List<Message>();
         private Color DefaultColor = Color.White;
 
+        public MessageBuilder ClearConsole()
+        {
+            Console.Clear();
+            return this;
+        }
+
         public MessageBuilder SetDefaultColor(Color color)
         {
             DefaultColor = color;

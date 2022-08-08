@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Drawing;
 
 using MegaChecker.messages;
 using MegaChecker.data;
+using MegaChecker.utils;
 
 namespace MegaChecker
 {
@@ -29,10 +26,11 @@ namespace MegaChecker
             builder.SendOne(" - Ładowanie kont...");
             AccountManager.LoadFromFiles();
 
-            //ConsoleMenu.MainMenu();
             //Check newest version
             builder.SendOne(" - Sprawdzanie wersji...");
             ProgramData.CheckVersion();
+
+            ConsoleMenu.MainMenu();
 
             Console.ReadLine();
         }

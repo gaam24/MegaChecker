@@ -67,6 +67,17 @@ namespace MegaChecker.data
             }
         }
 
+        public static int LoadedAccounts()
+        {
+            int count = 0;
+            foreach (List<Account> file in Accounts.Values)
+            {
+                count += file.Count;
+            }
+
+            return count;
+        }
+
         //TODO: Contains Ignore Case
         private static List<string> LoadFromURL(string url)
         {
