@@ -11,7 +11,7 @@ namespace MegaChecker
 {
     public static class ProgramData
     {
-        public static readonly string Version = "beta 0.1";
+        public static readonly string Version = "beta 1.0";
         public static readonly string Author = "gam24";
 
         public static readonly string ConsoleTitle = string.Format("MegaChecker by {0} - {1}", Author, Version);
