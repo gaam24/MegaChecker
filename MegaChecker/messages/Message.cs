@@ -52,6 +52,11 @@ namespace MegaChecker.messages
             return this;
         }
 
+        public Message AddFormatter(object target)
+        {
+            return AddFormatter(target, Color);
+        }
+
         public Message AddFormatter(object target, Color color)
         {
             if (Formatters == null) Formatters = new Formatter[] { };
