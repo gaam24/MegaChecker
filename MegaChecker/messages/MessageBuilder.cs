@@ -9,7 +9,7 @@ namespace MegaChecker.messages
     public class MessageBuilder
     {
         private List<Message> messages = new List<Message>();
-        private Color default_color;
+        private Color default_color = Color.White;
 
         public MessageBuilder SetDefaultColor(Color color)
         {
@@ -20,7 +20,7 @@ namespace MegaChecker.messages
         public Message Add(string text = "Textn't")
         {
             Message message = new Message(text);
-            if (default_color != null) message.SetColor(default_color);
+            message.SetColor(default_color);
 
             messages.Add(message);
             return messages.Last();
@@ -39,6 +39,9 @@ namespace MegaChecker.messages
                     Console.WriteLine(message.GetText(), message.GetColor());
                 }
             }
+
+            messages.Clear();
+            default_color = Color.White;
         }
     }
 }
