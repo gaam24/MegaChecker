@@ -26,7 +26,12 @@ namespace MegaChecker.messages
             return messages.Last();
         }
 
-        public void send()
+        public void SendOne(string text)
+        {
+            Console.WriteLine(text, default_color);
+        }
+
+        public void Send()
         {
             foreach (Message message in messages)
             {
@@ -41,7 +46,6 @@ namespace MegaChecker.messages
             }
 
             messages.Clear();
-            default_color = Color.White;
         }
     }
 }

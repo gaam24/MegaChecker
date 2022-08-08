@@ -14,7 +14,7 @@ namespace MegaChecker.utils
             builder.Add("Wybierz, co chcesz zrobić:");
             builder.Add(" - 1. {0}").AddFormatter("Pokaż załadowane konta", Color.Blue);
 
-            builder.send();
+            builder.Send();
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +18,20 @@ namespace MegaChecker
 
         public static readonly string accounts_folder_path = "./Accounts";
         public static readonly string backup_folder_path = "./Accounts";
-        //public static readonly string cache_folder_path = "./Accounts";
+
+        public static void CheckFolders()
+        {
+            // Accounts folder
+            if (!Directory.Exists(accounts_folder_path))
+            {
+                Directory.CreateDirectory(accounts_folder_path);
+            }
+
+            // Backup folder
+            if (!Directory.Exists(backup_folder_path))
+            {
+                Directory.CreateDirectory(backup_folder_path);
+            }
+        }
     }
 }

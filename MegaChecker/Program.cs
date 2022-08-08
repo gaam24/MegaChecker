@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 
+using MegaChecker.messages;
 using MegaChecker.utils;
 
 namespace MegaChecker
@@ -14,7 +16,13 @@ namespace MegaChecker
         {
             Console.Title = ProgramData.console_title;
 
-            ConsoleMenu.MainMenu();
+            MessageBuilder builder = new MessageBuilder();
+            builder.SetDefaultColor(Color.Orange);
+
+            builder.SendOne(" - Sprawdzanie plików...");
+            ProgramData.CheckFolders();
+
+            //ConsoleMenu.MainMenu();
 
             Console.ReadLine();
         }
