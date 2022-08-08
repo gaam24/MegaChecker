@@ -17,7 +17,7 @@ namespace MegaChecker
         public static string console_title = string.Format("MegaChecker by {0} - {1}", author, version);
 
         public static readonly string accounts_folder_path = "./Accounts";
-        public static readonly string backup_folder_path = "./Accounts";
+        //public static readonly string backup_folder_path = "./Backup";
 
         public static void CheckFolders()
         {
@@ -28,10 +28,10 @@ namespace MegaChecker
             }
 
             // Backup folder
-            if (!Directory.Exists(backup_folder_path))
+            /*if (!Directory.Exists(backup_folder_path))
             {
                 Directory.CreateDirectory(backup_folder_path);
-            }
+            }*/
         }
     }
 }
