@@ -8,44 +8,37 @@ namespace MegaChecker.messages
 {
     public class MessageBuilder
     {
-        private List<Message> messages = new List<Message>();
-        private Color default_color = Color.White;
+        private List<Message> Messages = new List<Message>();
+        private Color DefaultColor = Color.White;
 
         public MessageBuilder SetDefaultColor(Color color)
         {
-            default_color = color;
+            DefaultColor = color;
             return this;
         }
 
         public Message Add(string text = "Textn't")
         {
-            Message message = new Message(text);
-            message.SetColor(default_color);
-
-            messages.Add(message);
-            return messages.Last();
+            Messages.Add(new Message(text).SetColor(DefaultColor));
+            return Messages.Last();
         }
 
         public void SendOne(string text)
         {
-            Console.WriteLine(text, default_color);
+            Console.WriteLine(text, DefaultColor);
         }
 
         public void Send()
         {
-            foreach (Message message in messages)
+            foreach (Message message in Messages)
             {
                 if (message.GetFormatters() != null && message.GetFormatters().Length > 0)
-                {
                     Console.WriteLineFormatted(message.GetText(), message.GetColor(), message.GetFormatters());
-                }
                 else
-                {
                     Console.WriteLine(message.GetText(), message.GetColor());
-                }
             }
 
-            messages.Clear();
+            Messages.Clear();
         }
     }
 }

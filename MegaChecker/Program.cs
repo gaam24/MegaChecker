@@ -14,11 +14,14 @@ namespace MegaChecker
     {
         static void Main(string[] args)
         {
-            Console.Title = ProgramData.console_title;
+            //Console title
+            Console.Title = ProgramData.ConsoleTitle;
 
+            //Console message builder
             MessageBuilder builder = new MessageBuilder();
             builder.SetDefaultColor(Color.Orange);
 
+            //Chek folders
             builder.SendOne(" - Sprawdzanie plików...");
             ProgramData.CheckFolders();
 

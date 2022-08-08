@@ -11,26 +11,26 @@ namespace MegaChecker
 {
     public static class ProgramData
     {
-        public static string version = "beta 0.1";
-        public static string author = "gam24";
+        public static readonly string Version = "beta 0.1";
+        public static readonly string Author = "gam24";
 
-        public static string console_title = string.Format("MegaChecker by {0} - {1}", author, version);
+        public static readonly string ConsoleTitle = string.Format("MegaChecker by {0} - {1}", Author, Version);
 
-        public static readonly string accounts_folder_path = "./Accounts";
-        //public static readonly string backup_folder_path = "./Backup";
+        public static readonly string AccountsFolderPath = "./Accounts";
+        //public static readonly string BackupFolderPath = "./Backup";
 
         public static void CheckFolders()
         {
             // Accounts folder
-            if (!Directory.Exists(accounts_folder_path))
+            if (!Directory.Exists(AccountsFolderPath))
             {
-                Directory.CreateDirectory(accounts_folder_path);
+                Directory.CreateDirectory(AccountsFolderPath);
             }
 
             // Backup folder
-            /*if (!Directory.Exists(backup_folder_path))
+            /*if (!Directory.Exists(BackupFolderPath))
             {
-                Directory.CreateDirectory(backup_folder_path);
+                Directory.CreateDirectory(BackupFolderPath);
             }*/
         }
     }

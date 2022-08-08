@@ -8,58 +8,58 @@ namespace MegaChecker.messages
 {
     public class Message
     {
-        private string text;
-        private Color color;
-        private Formatter[] formatters;
+        private string Text;
+        private Color Color;
+        private Formatter[] Formatters;
 
         public Message(string text = "Textn't")
         {
-            this.text = text;
-            this.color = Color.White;
-            formatters = null;
+            Text = text;
+            Color = Color.White;
+            Formatters = null;
         }
 
         public string GetText()
         {
-            return text;
+            return Text;
         }
 
         public Message SetText(string text)
         {
-            this.text = text;
+            this.Text = text;
             return this;
         }
 
         public Color GetColor()
         {
-            return color;
+            return Color;
         }
 
         public Message SetColor(Color color)
         {
-            this.color = color;
+            this.Color = color;
             return this;
         }
 
         public Formatter[] GetFormatters()
         {
-            return formatters;
+            return Formatters;
         }
 
         public Message SetFormatters(Formatter[] formatters)
         {
-            this.formatters = formatters;
+            this.Formatters = formatters;
             return this;
         }
 
         public Message AddFormatter(object target, Color color)
         {
-            if (formatters == null) formatters = new Formatter[] { };
+            if (Formatters == null) Formatters = new Formatter[] { };
 
-            List<Formatter> frs = formatters.ToList();
+            List<Formatter> frs = Formatters.ToList();
             frs.Add(new Formatter(target, color));
 
-            formatters = frs.ToArray();
+            Formatters = frs.ToArray();
 
             return this;
         }
