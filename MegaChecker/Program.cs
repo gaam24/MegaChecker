@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Drawing;
 
 using MegaChecker.messages;
-using MegaChecker.utils;
+using MegaChecker.data;
 
 namespace MegaChecker
 {
@@ -24,6 +24,10 @@ namespace MegaChecker
             //Check folders
             builder.SendOne(" - Sprawdzanie plików...");
             ProgramData.CheckFolders();
+
+            //Load accounts from file
+            builder.SendOne(" - Ładowanie kont...");
+            AccountManager.LoadFromFiles();
 
             //ConsoleMenu.MainMenu();
 

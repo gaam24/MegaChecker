@@ -57,6 +57,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="data\Account.cs" />
+    <Compile Include="data\AccountManager.cs" />
     <Compile Include="messages\Message.cs" />
     <Compile Include="ProgramData.cs" />
     <Compile Include="Program.cs" />
