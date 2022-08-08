@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
+using MegaChecker.data.supports;
+using MegaChecker.utils;
 
 namespace MegaChecker.data
 {
@@ -24,8 +25,10 @@ namespace MegaChecker.data
                 string file_name = file.Split('\\')[1];
                 bool long_comment = false;
 
-                foreach (string line in lines)
+                for (int i = 0; i < lines.Count; i++)
                 {
+                    string line = lines[i];
+
                     if (string.IsNullOrEmpty(line)) continue; // Skip empty line
                     if (line.StartsWith("//")) continue; //Single comment
                     if (line.StartsWith("/*")) // Long comment - Start
@@ -33,13 +36,23 @@ namespace MegaChecker.data
                         long_comment = true;
                         continue;
                     }
-                    if (line.EndsWith("*/")) // Long comment - Stop
+                    if (line.StartsWith("*/") || line.EndsWith("*/")) // Long comment - Stop
                     {
                         long_comment = false;
                         continue;
                     }
                     if (long_comment) continue;
 
+                    // Link support
+                    if (line.StartsWith("link:"))
+                    {
+                        List<string> url_list = LoadFromURL(line.Replace("link:", ""));
+                        if (url_list.Count > 0) lines.AddRange(url_list);
+
+                        continue;
+                    }
+
+                    // Parse line
                     string[] split = line.Split(':');
 
                     string email = split[0];
@@ -52,6 +65,14 @@ namespace MegaChecker.data
                     }
                 }
             }
+        }
+
+        //TODO: Contains Ignore Case
+        private static List<string> LoadFromURL(string url)
+        {
+            if (url.Contains(LinkManager.GoogleDrive)) url = GoogleDrive.GetRaw(url); //GoogleDrive
+
+            return NetworkUtils.ReadFromURL(url);
         }
     }
 }
