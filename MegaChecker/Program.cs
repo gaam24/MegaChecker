@@ -21,7 +21,7 @@ namespace MegaChecker
             MessageBuilder builder = new MessageBuilder();
             builder.SetDefaultColor(Color.Orange);
 
-            //Chek folders
+            //Check folders
             builder.SendOne(" - Sprawdzanie plików...");
             ProgramData.CheckFolders();
 
